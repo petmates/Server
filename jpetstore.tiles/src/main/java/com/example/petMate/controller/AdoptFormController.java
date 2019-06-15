@@ -1,5 +1,8 @@
 package com.example.petMate.controller;
 
-public class AdoptFormController {
+import org.springframework.stereotype.Controller;
 
+@Controller
+public class AdoptFormController {
+	
 }
