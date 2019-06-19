@@ -57,7 +57,8 @@
                                 </div>
                                 <div><p>${item.i_date}</p></div>
                                 <div class="col-xs-12 col-md-6">
-                                    <a class="btn btn-success" href="http://www.jquery2dotnet.com">Add to cart</a>
+                                    <a class="btn btn-success" href='<c:url value="/addCart.do">
+          <c:param name="itemId" value="${item.i_idx}"/></c:url>'>Add to cart</a>
                                 </div>
                             </div>
                         </div>

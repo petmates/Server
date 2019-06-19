@@ -28,4 +28,8 @@ public interface ItemMapper {
 	
 	@Select("SELECT ii_url FROM item, item_image WHERE item.i_idx = item_image.item_i_idx AND item.i_idx= #{item_idx}")
 	String[] getItemImageUrls(int item_idx);
+	
+	boolean isItemInStock(int itemId);
+	
+	int getInventoryQuantity(int itemId);
 }

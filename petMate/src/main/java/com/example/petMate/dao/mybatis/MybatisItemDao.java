@@ -55,6 +55,9 @@ public class MybatisItemDao implements ItemDao{
 		return itemMapper.getItemImageUrls(item_idx);
 	}
 
+	public boolean isItemInStock(int itemId){
+		return (itemMapper.getInventoryQuantity(itemId) > 0);
+	}
 
 
 }

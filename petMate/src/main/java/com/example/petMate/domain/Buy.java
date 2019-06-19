@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @SuppressWarnings("serial")
-public class buy implements Serializable{
+public class Buy implements Serializable{
 	
 	//but
 	private int b_idx;

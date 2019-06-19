@@ -18,4 +18,6 @@ public interface ItemDao {
 	  List<String> getItemnameList(); // throws DataAccessException;
 	  
 	  String[] getItemImageUrls(int item_idx);
+	  
+	  boolean isItemInStock(int itemId);
 }

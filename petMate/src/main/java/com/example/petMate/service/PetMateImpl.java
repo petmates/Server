@@ -93,5 +93,12 @@ public class PetMateImpl implements PetMateFacade {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
+	@Override
+	public boolean isItemInStock(int itemIdx){
+		return itemDao.isItemInStock(itemIdx);
+	}
+
 
 }

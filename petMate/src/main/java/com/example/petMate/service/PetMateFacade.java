@@ -29,4 +29,6 @@ public interface PetMateFacade {
 
 	List<String> getItemnameList(); // throws DataAccessException;
 
+	boolean isItemInStock(int itemIdx);
+
 }
