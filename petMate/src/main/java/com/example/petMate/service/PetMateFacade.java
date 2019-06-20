@@ -3,19 +3,18 @@ package com.example.petMate.service;
 import java.util.List;
 import com.example.petMate.domain.Account;
 import com.example.petMate.domain.Item;
+import com.example.petMate.domain.buy;
 
 public interface PetMateFacade {
-
 	// User
-	Account getAccount(String username);// throws DataAccessException;
-
 	Account getAccount(String username, String password);// throws DataAccessException;
+	
+	Account getAccountById(String username);
 
 	void insertAccount(Account account);// throws DataAccessException;
 
 	void updateAccount(Account account);// throws DataAccessException;
 
-	List<String> getUsernameList(); // throws DataAccessException;
 
 
 	// Item 
@@ -30,5 +29,17 @@ public interface PetMateFacade {
 	List<String> getItemnameList(); // throws DataAccessException;
 
 	boolean isItemInStock(int itemIdx);
+	
+	void insertBuy(Item item, buy buy);
+
+	buy getBuy(int b_idx);
+
+	List<buy> getOrdersByUsername(String username);
+	
+	//void deleteItem(int item_idx);
+	
+	//void deleteItemImage(int item_idx);
+	
+	void updateItem(int item_idx);
 
 }

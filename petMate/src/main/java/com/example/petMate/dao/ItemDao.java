@@ -20,4 +20,10 @@ public interface ItemDao {
 	  String[] getItemImageUrls(int item_idx);
 	  
 	  boolean isItemInStock(int itemId);
+	  
+	  //void deleteItem(int item_idx);
+	  
+	  //void deleteItemImage(int item_idx);
+	  
+	  void updateItem(int item_idx);
 }

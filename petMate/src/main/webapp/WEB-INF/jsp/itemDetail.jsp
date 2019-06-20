@@ -34,7 +34,8 @@
 						<h4 class="price">current price: <span>${item.i_price}</span></h4>
 						<p class="vote"><strong>${item.i_stock}</strong>개 남았습니다!</p>
 						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
+							<button class="add-to-cart btn btn-default" type="button"><a href='<c:url value="/addCart.do">
+          <c:param name="itemId" value="${item.i_idx}"/></c:url>'>add to cart</a></button>
 						</div>
 					</div>
 				</div>

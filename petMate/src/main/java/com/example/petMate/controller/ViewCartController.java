@@ -39,9 +39,10 @@ public class ViewCartController {
 			@ModelAttribute("sessionCart") Cart cart) 
 			throws Exception {
 		logger.info("cart : " + cart.getNumberOfItems());
-		//UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-		//handleRequest(page, cart, userSession);
-		handleRequest(page, cart);
+		
+		UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+		handleRequest(page, cart, userSession);
+		//handleRequest(page, cart);
 		return new ModelAndView("Cart", "cart", cart);
 	}
 
@@ -51,22 +52,22 @@ public class ViewCartController {
 			@RequestParam(value="page", required=false) String page,
 			@ModelAttribute("sessionCart") Cart cart) 
 			throws Exception {
-		//UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-		//handleRequest(page, cart, userSession);
-		handleRequest(page, cart);
+		UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+		handleRequest(page, cart, userSession);
+		//handleRequest(page, cart);
 		return new ModelAndView("Checkout", "cart", cart);
 	}
 	
-	private void handleRequest(String page, Cart cart)
+	private void handleRequest(String page, Cart cart, UserSession userSession)
 			throws Exception {
-		/*if (userSession != null) {
+		if (userSession != null) {
 			if ("next".equals(page)) {
 				userSession.getMyList().nextPage();
 			}
 			else if ("previous".equals(page)) {
 				userSession.getMyList().previousPage();
 			}
-		}*/
+		}
 		if ("nextCart".equals(page)) {
 			cart.getCartItemList().nextPage();
 		}

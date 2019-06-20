@@ -1,24 +1,24 @@
 package com.example.petMate.controller;
 
 import com.example.petMate.domain.Account;
-import com.example.petMate.domain.Buy;
+import com.example.petMate.domain.buy;
 
 public class OrderForm {
-	private Account account;
-	private final Buy buy = new Buy();
+	private final Account account;
+	private final buy buy = new buy();
 	private String bankName;
 	private String accountNumber;
+	
+	public OrderForm(Account account) {
+		this.account = account;
+	}
 	
 
 	public Account getAccount() {
 		return account;
 	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-
-	public Buy getBuy() {
+	
+	public buy getBuy() {
 		return buy;
 	}
 

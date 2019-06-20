@@ -1,52 +1,31 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <jsp:include page = "/WEB-INF/jsp/menu.jsp"/>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<c:set var="targetUrl"><c:url value="/newOrderSubmitted.do" /></c:set>
+<h2>&nbsp;&nbsp;&nbsp;Payment Details</h2>
 
 <div align="center">
-<form:form commandName="buy" action="${targetUrl}" method="post">
-  <form:errors cssClass="error" /> <br><br>
+<form:form commandName="orderForm" action="/newOrderSubmitted.do" method="post"><br>
   
-  <table class="n13">
-    <tr>
-      <td colspan="2">
-        <font color="green" size="4"><b>Payment Details</b></font></td>
-    </tr>
+  <table>
     <tr>
       <td>Bank name</td>
-      <td><form:select path="b" items="${bankName}" />
+      <td><form:select path="bankName" items="${bankName}" />
     </tr>
     <tr>
       <td>Account Number:</td>
-      <td><form:input path="accountNumber" /> 
+      <td><form:input path="accountNumber" size="20"/> 
         <font color="red" size="2">* Use a fake number!</font>
     </tr>
     
-    <tr>
-      <td colspan="2">
-        <font color="green" size="4"><b>Billing Address</b></font></td>
-    </tr>
-    <tr>
-      <td>name:</td>
-      <td><form:input path="account.u_name" /> </td>
-    </tr>
-    <tr>
-      <td>Address:</td>
-      <td><form:input path="account.u_address" /></td>
-    </tr>
-    <tr>
-      <td>Phone:</td>
-      <td><form:input path="account.u_phone" /></td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <form:checkbox path="shippingAddressRequired"
-          label="Ship to different address..." /></td>
-    </tr>
   </table>
   <p>
-    <input type="image" src="../images/button_submit.gif">
+  <p>
+  <p>
+  	<input type="submit" value="SUBMIT" class="btn btn-outline-secondary slidedown"/>
   </p>
 </form:form>
 </div>

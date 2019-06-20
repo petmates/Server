@@ -58,6 +58,17 @@ public class MybatisItemDao implements ItemDao{
 	public boolean isItemInStock(int itemId){
 		return (itemMapper.getInventoryQuantity(itemId) > 0);
 	}
+	@Override
+	public void updateItem(int item_idx) {
+		// TODO Auto-generated method stub
+		itemMapper.updateItem(item_idx);
+	}
 
-
+	/*public void deleteItem(int item_idx) {
+		itemMapper.deleteItem(item_idx);
+	}
+	
+	public void deleteItemImage(int item_idx) {
+		itemMapper.deleteItemImage(item_idx);
+	}*/
 }

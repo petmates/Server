@@ -70,15 +70,12 @@ public class Cart implements Serializable {
 	    cartItem.setQuantity(quantity);
 	}
 	
-	public double getSubTotal() {
-	    double subTotal = 0;
+	public int getSubTotal() {
+	    int subTotal = 0;
 	    Iterator<CartItem> items = getAllCartItems();
 	    while (items.hasNext()) {
 	      CartItem cartItem = (CartItem) items.next();
-	      Item item = cartItem.getItem();
-	      double listPrice = Double.parseDouble(item.getI_price());
-	      int quantity = cartItem.getQuantity();
-	      subTotal += listPrice * quantity;
+	      subTotal += Integer.parseInt(cartItem.getTotalPrice());
 	    }
 	    return subTotal;
 	}

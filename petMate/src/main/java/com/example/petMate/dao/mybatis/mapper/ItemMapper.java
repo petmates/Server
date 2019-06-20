@@ -3,8 +3,10 @@ package com.example.petMate.dao.mybatis.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.petMate.domain.Item;
 
@@ -32,4 +34,13 @@ public interface ItemMapper {
 	boolean isItemInStock(int itemId);
 	
 	int getInventoryQuantity(int itemId);
+	
+	//@Delete("DELETE FROM item WHERE i_idx=" + "#{item_idx}")
+	//void deleteItem(int item_idx);
+	
+	@Update("UPDATE item SET i_stock=0 WHERE i_idx=" + "#{item_idx}")
+	void updateItem(int item_idx);
+	
+	//@Delete("DELETE FROM item_image WHERE item_i_idx=" + "#{item_idx}")
+	//void deleteItemImage(int item_idx);
 }

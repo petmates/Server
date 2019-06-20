@@ -29,7 +29,7 @@ public class CartItem implements Serializable {
 	public String getTotalPrice() {
 		String result = "";
 		if (item != null) {
-			result += Double.parseDouble(item.getI_price()) * quantity;
+			result += Integer.parseInt(item.getI_price()) * item.getI_stock();
 		}
 		else {
 			result += "0";
