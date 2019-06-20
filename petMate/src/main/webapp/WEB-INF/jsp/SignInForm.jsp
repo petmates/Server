@@ -9,6 +9,8 @@
 
 <c:if test="${!empty message}">
   <b><font color="red"><c:url value="${message}" /></font></b>
+  <br>
+  <c:out value="Id or Password is wrong."/>
 </c:if>
 
 <div align="center">
@@ -34,11 +36,12 @@
         <td>&nbsp;</td>
         </tr>
     </table>
-    <button>login</button>
+    <input type="submit" value="LOGIN" class="btn btn-outline-primary slideup">
+    <a href='<c:url value="/signupForm.do"/>'> 
+     <button type="button" class="btn btn-outline-primary slideup">JOIN</button>
+  	</a> 
   </form>
-  <a href='<c:url value="/signupForm.do"/>'> 
-     <button>join</button>
-  </a> 
+  
 </div>
 
 <%-- <%@ include file="IncludeBottom.jsp"%> --%>

@@ -8,9 +8,9 @@
 	OrderForm orderForm = (OrderForm)session.getAttribute("orderForm");
 %>
 <h2>&nbsp;&nbsp;&nbsp;Order</h2>
-<div align="center">
+<div>
   <p>
-    <b>Please confirm the information below and then press continue...</b>
+    <b>&nbsp;&nbsp;&nbsp;Please confirm the information below and then press continue...</b>
   </p>
   <p></p>
   <table class="n13">
@@ -22,21 +22,21 @@
     </tr>
     <tr>
       <td colspan="2">
-        <font color="GREEN" size="8"><b>Order Information</b></font></td>
+        <font color="GREEN" size="8"><b>&nbsp;&nbsp;&nbsp;Order Information</b></font></td>
     </tr>
     <tr>
-      <td>Name:</td>
-      <td><%=orderForm.getAccount().getU_name() %></td>
-    </tr>
-    
-    <tr>
-      <td>Phone:</td>
-      <td><%=orderForm.getAccount().getU_phone() %></td>
+      <td>&nbsp;&nbsp;&nbsp;Name:</td>
+      <td>&nbsp;&nbsp;&nbsp;<%=orderForm.getAccount().getU_name() %></td>
     </tr>
     
     <tr>
-      <td>Address:</td>
-      <td><%=orderForm.getAccount().getU_address() %></td>
+      <td>&nbsp;&nbsp;&nbsp;Phone:</td>
+      <td>&nbsp;&nbsp;&nbsp;<%=orderForm.getAccount().getU_phone() %></td>
+    </tr>
+    
+    <tr>
+      <td>&nbsp;&nbsp;&nbsp;Address:</td>
+      <td>&nbsp;&nbsp;&nbsp;<%=orderForm.getAccount().getU_address() %></td>
     </tr>
         
   </table>
@@ -44,6 +44,6 @@
   <p>
   <p>
   <p>
-    <a href="/confirmOrder.do" class="btn btn-outline-success slideright">INPUT</a>
+    &nbsp;&nbsp;&nbsp;<a href="/confirmOrder.do" class="btn btn-outline-success slideright">INPUT</a>
   </p>
 </div>

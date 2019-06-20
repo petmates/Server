@@ -8,9 +8,12 @@ public class Pet implements Serializable {
 	//pet
 	private int p_idx;
 	private int p_age;
-	private String p_gender;
+	private int p_gender;
 	private String p_name;
-	private String p_isinjection;
+	private int p_isInjection;
+	private int p_cate;
+	private String p_cate_detail;
+	private String p_url;
 	
 	//user
 	private String user_u_idx;
@@ -34,11 +37,11 @@ public class Pet implements Serializable {
 		this.p_age = p_age;
 	}
 
-	public String getP_gender() {
+	public int getP_gender() {
 		return p_gender;
 	}
 
-	public void setP_gender(String p_gender) {
+	public void setP_gender(int p_gender) {
 		this.p_gender = p_gender;
 	}
 
@@ -50,12 +53,28 @@ public class Pet implements Serializable {
 		this.p_name = p_name;
 	}
 
-	public String getP_isinjection() {
-		return p_isinjection;
+	public int getP_isInjection() {
+		return p_isInjection;
 	}
 
-	public void setP_isinjection(String p_isinjection) {
-		this.p_isinjection = p_isinjection;
+	public void setP_isInjection(int p_isInjection) {
+		this.p_isInjection = p_isInjection;
+	}
+
+	public int getP_cate() {
+		return p_cate;
+	}
+
+	public void setP_cate(int p_cate) {
+		this.p_cate = p_cate;
+	}
+
+	public String getP_cate_detail() {
+		return p_cate_detail;
+	}
+
+	public void setP_cate_detail(String p_cate_detail) {
+		this.p_cate_detail = p_cate_detail;
 	}
 
 	public String getUser_u_idx() {
@@ -73,6 +92,23 @@ public class Pet implements Serializable {
 	public void setCategory_c_idx(int category_c_idx) {
 		this.category_c_idx = category_c_idx;
 	}
+
+	public String getP_url() {
+		return p_url;
+	}
+
+	public void setP_url(String p_url) {
+		this.p_url = p_url;
+	}
+
+	@Override
+	public String toString() {
+		return "Pet [p_idx=" + p_idx + ", p_age=" + p_age + ", p_gender=" + p_gender + ", p_name=" + p_name
+				+ ", p_isInjection=" + p_isInjection + ", p_cate=" + p_cate + ", p_cate_detail=" + p_cate_detail
+				+ ", p_url=" + p_url + ", user_u_idx=" + user_u_idx + ", category_c_idx=" + category_c_idx + "]";
+	}
+	
+	
 
 	
 }

@@ -15,7 +15,7 @@ public interface BuyMapper {
 	buy getBuy(@Param("b_idx")int b_idx);
 	
 	@Insert("INSERT INTO buy "
-			+ "VALUES(#{buy.b_idx}, #{buy.b_date}, #{item.i_price}, "
+			+ "VALUES(null, #{buy.b_date}, #{item.i_price}, "
 			+ "#{buy.b_state}, #{item.user_u_idx}, #{buy.buyer_idx}, #{item.i_idx})")
 	void insertBuy(@Param("item")Item item, @Param("buy")buy buy);
 }

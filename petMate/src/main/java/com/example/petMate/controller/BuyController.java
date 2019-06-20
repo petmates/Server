@@ -147,7 +147,7 @@ public class BuyController {
 			Item item = list.get(i).getItem();
 			//petStore.deleteItemImage(item.getI_idx());
 			//petStore.deleteItem(list.get(i).getItem().getI_idx());
-			petStore.updateItem(item.getI_idx());
+			petStore.updateItemByIdx(item.getI_idx());
 		}
 		
 		ModelAndView mav = new ModelAndView("ViewOrder");

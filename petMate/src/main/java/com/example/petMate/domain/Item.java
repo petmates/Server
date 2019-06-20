@@ -2,10 +2,12 @@ package com.example.petMate.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @SuppressWarnings("serial")
 public class Item implements Serializable{
-	
 	//item
 	private int i_idx;
 	private String i_title;
@@ -23,7 +25,6 @@ public class Item implements Serializable{
 	//user
 	private String user_u_idx;		//seller? buyer?
 
-	
 	//GetterSetter
 	public int getI_idx() {
 		return i_idx;

@@ -1,17 +1,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<%@ page language ="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("utf-8");%>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
+<%
+	String u_idx = (String)session.getAttribute("u_idx");
+%>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    
 <%@include file="/WEB-INF/jsp/menu.jsp" %>
- 				<div class="container">
+
+ 	<div class="container">
   					<div class="row">
     				<section id="pinBoot">
      					<c:forEach var="url" items="${item.ii_url}">
@@ -20,8 +26,7 @@
     				</section>
    					<hr>
   					</div>	
-  				</div> 
-  							
+  				</div> 		
 	<div class="container">
 		<div class="card">
 			<div class="container-fliud">
@@ -31,11 +36,18 @@
 						<h3 class="product-title">${item.i_title}</h3>
 						
 						<p class="product-description">${item.i_detail}</p>
-						<h4 class="price">current price: <span>${item.i_price}</span></h4>
+						<h4 class="price">current price: <span><fmt:formatNumber value="${item.i_price}"  pattern="₩ #,##0"  /></span></h4>
 						<p class="vote"><strong>${item.i_stock}</strong>개 남았습니다!</p>
 						<div class="action">
+<%-- <<<<<<< HEAD
 							<button class="add-to-cart btn btn-default" type="button"><a href='<c:url value="/addCart.do">
           <c:param name="itemId" value="${item.i_idx}"/></c:url>'>add to cart</a></button>
+======= --%>
+							<button class="add-to-cart btn btn-default" type="button" id="CartButton"><a href='<c:url value="/addCart.do">
+          <c:param name="itemId" value="${item.i_idx}"/></c:url>'>add to cart</a></button>
+							<button class="add-to-cart btn btn-default" type="button" id="BuyButton">Buy</button>
+							<button class="add-to-cart btn btn-default" type="button" id="EditButton"><a href='<c:url value="itemsEdit.do"/>' >Edit</a></button>
+							<button class="add-to-cart btn btn-default" type="button" id="DeleteButton" onclick="real_delete();">Delete</button>
 						</div>
 					</div>
 				</div>
@@ -66,7 +78,7 @@ img {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column; }
-  @media screen and (max-width: 996px) {
+  @media screen and (max-width: 996px) { 
     .preview {
       margin-bottom: 20px; } }
 
@@ -186,7 +198,7 @@ img {
   background: #85ad00; }
 
 .blue {
-  background: #0076ad; }
+  background: #064; }
 
 .tooltip-inner {
   padding: 1.3em; }
@@ -257,7 +269,33 @@ stylize any heading tags withing white-panel below
 </style>
   
 <script>
+function real_delete() {
+	if(confirm("정말 삭제하시겠습니까?")==true){
+		location.href="/items/delete/${item.i_idx}";
+		return true;
+	}else{
+		return false;
+	}
+}
+window.onload = buttonOnload;
+
+function buttonOnload(){
+	if("${u_idx}" == "${item.user_u_idx}"){
+		var cartButton = document.getElementById('CartButton'); 
+		cartButton.style.visibility = 'hidden';
+		var buyButton = document.getElementById('BuyButton'); 
+		buyButton.style.visibility = 'hidden';
+	}else{
+		var editButton = document.getElementById('EditButton'); 
+		editButton.style.visibility = 'hidden';
+		var deleteButton = document.getElementById('DeleteButton'); 
+		deleteButton.style.visibility = 'hidden';
+	}
+}
+</script>
+<script>
 $(document).ready(function() {
+
 	$('#pinBoot').pinterest_grid({
 	no_columns: 4,
 	padding_x: 10,
